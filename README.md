@@ -8,7 +8,6 @@ Creator:<br>
     Course: WDIR-Hopper <br>
 Competencies: HMTL, CSS, Javascript functions, jQuery and DOM<br>
 Prerequisites: Javascript, CSS, HTML <br>
-
 ---
 
 # Calculator
