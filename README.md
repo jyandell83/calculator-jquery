@@ -11,7 +11,7 @@ Prerequisites: JavaScript fundamentals, CSS, HTML, jQuery <br>
 
 ---
 
-![vintage calc](http://www.vintagecalculators.com/assets/images/SharpEL8_1.JPG)
+![vintage calc](https://i.imgur.com/oYTu4hC.png)
 
 ## User Stories
 
@@ -27,7 +27,7 @@ Hey! It's a new vocabulary word!
 6. A user should be able to see the output.
 7. A user should be able to clear errant input in the middle of a calculation.
 
-![crank-calc](http://pixdaus.com/files/items/pics/7/40/130740_3f806b476fbc954004a01e49db43ea6f_large.jpg)
+![crank-calc](https://i.imgur.com/ozULSg3.png)
 
 ## Setup
 
