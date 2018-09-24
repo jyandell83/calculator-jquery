@@ -1,20 +1,17 @@
+![GA Logo](https://camo.githubusercontent.com/6ce15b81c1f06d716d753a61f5db22375fa684da/68747470733a2f2f67612d646173682e73332e616d617a6f6e6177732e636f6d2f70726f64756374696f6e2f6173736574732f6c6f676f2d39663838616536633963333837313639306533333238306663663535376633332e706e67)
+
+# jQuery calculator
 
 Title: Calculator <br>
 Type: Lab <br>
-Duration: "2:00"<br>
-Creator:<br>
-    Original creators: WDI-Panthalassa, WDI-Archer, WDI-Funke, WDIR-Matrix<br>
-    Adapted by: Kristyn Bryan<br>
-    Course: WDIR-Hopper <br>
-Competencies: HMTL, CSS, Javascript functions, jQuery and DOM<br>
-Prerequisites: Javascript, CSS, HTML <br>
+Creator: WDI-Remote Instructors<br>
+Adapted by: Kristyn Bryan and then by Reuben Ayres<br>
+Competencies: HMTL, CSS, Javascript functions, jQuery and DOM event listeners<br>
+Prerequisites: JavaScript fundamentals, CSS, HTML, jQuery <br>
 
+---
 
-# Calculator
-
-## Lets build a calculator!
-
-- Build a calculator in your browser!
+![vintage calc](http://www.vintagecalculators.com/assets/images/SharpEL8_1.JPG)
 
 ## User Stories
 
@@ -28,21 +25,25 @@ Hey! It's a new vocabulary word!
 4. A user should be able to divide numbers.
 5. A user should be able to multiply numbers together.
 6. A user should be able to see the output.
-7. A user should be able to clear all operations and start from 0.
+7. A user should be able to clear errant input in the middle of a calculation.
 
+![crank-calc](http://pixdaus.com/files/items/pics/7/40/130740_3f806b476fbc954004a01e49db43ea6f_large.jpg)
 
 ## Setup
 
-1. Create a directory in today's folder (a nice name for today might be `06_25_building_apps`) called `calculator-lab`.
+1. Create a directory in today's folder called `calculator-lab`.
 
-2. Create our usual setup, remember to include jQuery.
+2. Create our usual setup and remember to include jQuery.
 
-3. Using a script tag, link the JS file to your html file (where does this script tag go? If you don't know, do some Googling).
+3. Use git and commit after each small step.
 
+4. Make a calculator from scratch. Build it yourself. Yes, google is out there and lots of people have made calculators that you could check out. But first, try to do it using what we've learned: event listeners are all you need. Look back at your notes from event listeners for guidance.
 
-## Design your calculator.
+![lotsa-calcs](https://www.nuvonium.com/_image_lib/blog/calculators.jpg)
 
-1. Before you type out your HTML, draw out how you want your calculator to look and start thinking about how to structure your html. Don't spend more than 10 minutes thinking through this part, but put something on paper before you code. This is your chance to create a *[wireframe](http://www.creativebloq.com/web-design/jargon-wireframes-mockups-prototypes-51514898)*!
+## Wireframe: design your calculator.
+
+1. Before you type out your HTML, draw out how you want your calculator to look and start thinking about how to structure your html. Don't spend more than 10 minutes thinking through this part, but put something on paper before you code.  It might seem silly, because we all know what a calculator looks like, but [wireframing](http://www.creativebloq.com/web-design/jargon-wireframes-mockups-prototypes-51514898) will make you think of important issues to consider.
 
 2. Think about where the input and output needs to be (buttons and display screen).
 
@@ -50,80 +51,90 @@ Hey! It's a new vocabulary word!
 
 1. Now that you have your wireframe drawn, use it to write the html needed for your calculator.
 
-2. Think about using ids and/or classes to help you select your elements!
+2. **Don't use jQuery to build the calculator html**. Just code it into your html page.  In a calculator app, the calculator interface itself never changes, and therefore should just be static HTML.
 
-## Need help? Here are things to think about
+3. Think about using ids and/or classes to help you select your elements.
+
+## Things to think about: HTML
 
 - You'll want to have a "screen" to display the results from your calculator. This could be as simple as just a div. Assign it an id to make it easy to grab!
 
-- Thinking about your calculator, each of the number "buttons" should probably be divs. If you used a `button` tag, the styling would be a little difficult. Assigning ids is a possibility, but you could also grab them by their innerHTML!
+- Thinking about your calculator, each of the number "buttons" should probably be divs. If you used a `button` tag, the styling would be a little difficult. Assigning ids is a possibility, but you could also grab them by their innerHTML!  Could you use classes as well?  Maybe one for "numbers" and one for "operators"?  There are many ways to set this up.
 
-- Don't forget to make elements for your operators (`+`, `-`, `*`, `/`, `=`). You can give them ids to help grab them as well.
+- Don't forget to make elements for your operators (`+`, `-`, `*`, `/`, `=`). You can give them ids to help grab them as well.  Remember you can have ids and classes, and you can use multiple classes if that's helpful.
 
-- Hard code! Put the actual numbers for the calculator into your HTML. There's no need to dynamically create the number and operator buttons; they won't be changing value.
+- As mentioned above, hard code the HTML! Put the actual numbers for the calculator buttons into your HTML. There's no need to dynamically create the number and operator buttons; they won't be changing.
 
-## Initial CSS
+![you could make your calculator look like this if you want](https://i.pinimg.com/736x/52/48/0a/52480a432900c1315a9ab75dccd31af9--rockstars-etsy-vintage.jpg)
 
-1. Write your initial CSS to make a rough copy of what you want your calculator page to look like. This could be just placing a border around everything so that you can see where your numbers and operators are located (make it easier to click and test).<br><br>For now, don't spend too much time on your CSS. You will come back to it.
 
-2. Make sure all of the interactive parts of the website are visible. This way, as you're building out the functions in your javascript file, you'll be able to test your code.
+## Things to think about: (initial) CSS
 
-3. Make sure that, wherever you are going to show the output, (the screen) is large enough to display the numbers that will be your output. A good way to do this is to actually hardcode something into your html file (like the numbers "123456" inside the element) so that you know you can see it.
+**For now, don't spend too much time on your CSS. You will come back to it.**
 
+1. Write your initial CSS to make a rough copy of what you want your calculator page to look like. This could be just placing a border around everything so that you can see where your numbers and operators are located (make it easier to click and test).
+
+2. Make sure all of the interactive parts of the app are visible. This way, as you're building out the functions in your javascript file, you'll be able to test your code.
+
+3. Make sure that, wherever you are going to show the output (the screen) is large enough to display the numbers that will be your output. A good way to do this is to temporarily hardcode somenumbers into the display in your html file (like the numbers "1234567890" inside the element) so that you know you can see it.
 
 Need help?
 - If you want to keep things simple, start by putting a border around all of your divs:
 
-```
-div {
-    border: 1px solid black;
-}
-```
+    ```css
+    div {
+        border: 1px solid black;
+    }
+    ```
 - Set a height and width for your number buttons (maybe add a class to your html number elements?). You pick the height and width, but start out by testing them at 50px for both;
 
 - Set a height and width to your operator elements and a separate height and width to your screen.
 
+![calcWatches](https://img1.etsystatic.com/113/0/12286757/il_340x270.996728585_def9.jpg)
 
-## Things to think about
+## Things to think about: programming/jQuery
 
-1. In this problem, *state* is very important. Try to think about how you are going to store the state of the calculator. What kind of information do you need to track?
-
-2. When the user clicks a button, how are you going to get which number or operation they clicked? When they click a certain button, what code are you going to have to run?
-
-
-## JavaScript
-
-User stories are a great way to break down exactly what needs to be done, so look back at them.
-
-1.  Start by figuring out what information you need to store. You can always revise this later as you realize you need more.
-
-2.  Events: start determining how you will handle user input (pressing buttons). Start actually writing the event handlers. What needs to change when a user clicks a button?
-
-3.  Functions: decide what functions need to be defined (think about what will have to be done once someone clicks a button. Hint: `add`, `subtract`, `multiply` are a few).
-
-4.  Use the functions previously defined to preform operations on our data. Start using the functions defined above in the event handlers. What functions need to be called when they click a button?
-
-5.  Test, fix, retest, fix, retest,...
-
-6.  Look back on code written and think about better ways to implement it. Maybe somethings not working at all, how can we restructure the code we have so that it does?
+#### User stories are a great way to break down exactly what needs to be done, so look back at them.
+* In this app, *state* is very important.  What is state? Try to think about how you are going to store the state of the calculator. What kind of information do you need to track?  How does one _track_ information in a JavaScript app? Start by figuring out what information you need to store. You can revise this later as much as you like.
+* When the user clicks a button, how are you going to get which number or operation they clicked? When they click a certain button, what code are you going to have to run?
+* Events: How you will handle user input (pressing buttons). Start actually writing the event handlers. What needs to change when a user clicks a button?
+* Always test event listeners with a `console.log()` before you write the logic to make them work.
+* Functions: decide what functions need to be defined (think about what will have to be done once someone clicks a button. Hint: `add`, `subtract`, `multiply` are a few).
+* Use the functions previously defined to preform operations on our data. Start using the functions defined above in the event handlers. What functions need to be called when they click a button?
+* Test, fix, retest, fix, retest,...
+* Look back on code written and think about better ways to implement it. Maybe something's not working at all, how can we restructure the code we have so that it does?
 
 
 # Hungry for more?
 
-## Improve your CSS
+1. Once you have the basics of the calculator working, look back at your code.  See any places where you have nearly identical code more than once? No problem, because it helped you build a working app. But you should make it **[DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)**.  Start to refactor (another vocabulary word) your code to take out unneeded parts or implement something in a better way.
 
-1. Update the colors and layout to make it look like a calculator that you would be proud to show to your friends!
+2. Make it look nicer with CSS
+    * Update the colors and layout. Be creative. Make it look like a calculator that you would be proud to show off!
+    * Import a font from Google fonts and get it working on your page (there might be some sweet monospace fonts you could do the display with, for example).
+    * Take a screenshot of your new calculator and show it to your classmates in Slack.
 
-2. Import a font from Google fonts and get it working on your page.
+3. What other operations/features can you add?
+    - Add an **AC** ("all clear") button that will clear your screen and reset your state and start the entire process over at zero.
+    - Make it handle decimal input.
+    - Show the previous entries in tiny letters on the top or bottom edge of the display. 
+    - Look at pictures of actual calculators and add other features you see.  
+        - Percentages?
+        - Negative?
+        - Exponents?
+        - Roots?  
+    - You could make it adding machine style, and have a ticker tape that comes out the top, showing the completed entries so far.  Then you'd need a reset button too, perhaps?
+        - You could have this be a mode that is switched on and off with a button.
+    - You could implement memory buttons. (MC/MR/MS/M+/M-)
+    - Others? If you don't have time, but have some ideas, add comments/pseudocode describing the features you might. How might you implement them? Is your code friendly to adding in new operations if another developer came in to add something to your code? 
 
-3. Take a screenshot of your new calculator. Save it in your `calculator` folder as `my_calculator_with_css_updates`.
+## Advanced
 
+1. Add scientific calculator functions:
+    * Parentheses
+    * Factorials
+    * sin/cos/tan and their inverses
+        * make a "degrees" mode and a "radians" mode
+    * log/ln and their inverses
 
-## DRY
-1. Add a `clear` button that will clear your screen and start over at zero.
-
-2. Once you have the basics of the calculator working, look back at your code. You want to make it [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).  Start to refactor (another vocabulary word) your code to take out unneeded parts or implement something in a better way.
-
-3. What other operations can you add to the calculator? If you have time, implement them. If you don't have time, but have some ideas, add comments to your code about what you'd like to add. How might you implement them? Is your code friendly to adding in new operations if another developer came in to add something to your code?
-
-4. Can you save the results somewhere?
+2. Implement a "Scientific notation" mode.
