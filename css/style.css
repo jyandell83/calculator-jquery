@@ -1,0 +1,35 @@
+body {
+    text-align: center;
+    margin: 0 auto;
+}
+#calculator {
+    height: 400px;
+    width: 400px;
+    margin: 5px auto;
+    background-color: lightpink;
+}
+#screen {
+    width: 100%;
+    height: 45px;
+    background-color: blanchedalmond;
+}
+.calcButton {
+    width:20%;
+    float: left;
+    height: 45px;
+    margin: 5px 0 5px 5%;
+    background-color: aquamarine;
+}
+
+.op {
+    background-color: lightblue;
+}
+#equal {
+    background-color: azure;
+}
+#equal:hover {
+    background-color: yellow;
+}
+.calcButton:hover { 
+    background-color: yellow;
+  }
