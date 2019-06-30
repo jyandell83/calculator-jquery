@@ -1,16 +1,18 @@
+//sanity check...
 console.log('calculator homework')
-//Variables
+//Variables - getting html elements with jQuery
 const $numbers = $('.number');
 const $op = $('.op');
 const $screen = $('#screen');
 const $equal = $('#equal');
 const $del = $('#del');
+//Arrays and values to work with...
 let digitArray = [];
 const valueArray = [];
 const opArray = [];
 let total = 0;
 let $operator = undefined;
-//function for performing math
+//equate function for performing math, the calculators brain, works ok now try and make DRY. I think the equal else if might not be needed
 const equate = (a,b) => {
     if (valueArray.length > 1) {
     if (opArray[0] === '+'){
@@ -39,7 +41,7 @@ const equate = (a,b) => {
         console.log(valueArray, opArray, '<----from equal');
     }
     else {return 'error'}
-    }else {console.log(valueArray, opArray, '<-----from valueArray.length 1 or 0')}
+    }
 };
 //clicking on numbers will store digits in array and set screen text to numbers pushed
 $numbers.on('click', (e) => {
@@ -47,18 +49,28 @@ $numbers.on('click', (e) => {
     $screen.text(digitArray.join(''));
 })
 
-//clicking an operator will push joined digits into value and clear digit array for next value
+//clicking an operator manipulates our arrays and sends us to equate function, not DRY just getting to work. If else is because it would bug out if you wanted to add or subtract etc directly after hitting equal
 $op.on('click', (e) => {
-    $operator = $(e.target).text();
-    opArray.push($operator);
-    valueArray.unshift(parseInt(digitArray.join('')));
-    console.log(valueArray, opArray, '<----- from opClick');
-    equate(valueArray[1], valueArray[0]);
-    digitArray=[];
+    if (digitArray.length > 0) {
+        $operator = $(e.target).text();
+        opArray.push($operator);
+        valueArray.unshift(parseInt(digitArray.join('')));
+        equate(valueArray[1], valueArray[0]);
+        digitArray=[];
+    } else {
+        $operator = $(e.target).text();
+        opArray.push($operator);
+        equate(valueArray[1], valueArray[0]);
+    }
 })
+//clicking equal button sets screen text to 'answer' and clears our valueArray
 $equal.on('click', (e) => {
     $screen.text(`${valueArray[0]}`)
+    for (let i = 1; i < valueArray.length; i++) {
+        valueArray.pop();
+    }
 })
+//clicking delete removes last digit in case someone clicks the wrong number by accident
 $del.on('click', e => {
     digitArray.pop();
     $screen.text(digitArray.join(''));
