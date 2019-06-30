@@ -4,6 +4,7 @@ const $numbers = $('.number');
 const $op = $('.op');
 const $screen = $('#screen');
 const $equal = $('#equal');
+const $del = $('#del');
 let digitArray = [];
 const valueArray = [];
 const opArray = [];
@@ -58,7 +59,10 @@ $op.on('click', (e) => {
 $equal.on('click', (e) => {
     $screen.text(`${valueArray[0]}`)
 })
-
+$del.on('click', e => {
+    digitArray.pop();
+    $screen.text(digitArray.join(''));
+})
 
 
 
