@@ -6,6 +6,8 @@ const $op = $('.op');
 const $screen = $('#screen');
 const $equal = $('#equal');
 const $del = $('#del');
+const $clear = $('#clear');
+const $rad = $('#rad');
 //Arrays and values to work with...
 let digitArray = [];
 const valueArray = [];
@@ -38,7 +40,6 @@ const equate = (a,b) => {
     else if (opArray[0] === '=') {
         opArray.shift();
         valueArray.unshift(valueArray[0]);
-        console.log(valueArray, opArray, '<----from equal');
     }
     else {return 'error'}
     }
@@ -63,7 +64,7 @@ $op.on('click', (e) => {
         equate(valueArray[1], valueArray[0]);
     }
 })
-//clicking equal button sets screen text to 'answer' and clears our valueArray
+//clicking equal button sets screen text to 'answer' and clears our valueArray except one
 $equal.on('click', (e) => {
     $screen.text(`${valueArray[0]}`)
     for (let i = 1; i < valueArray.length; i++) {
@@ -75,6 +76,15 @@ $del.on('click', e => {
     digitArray.pop();
     $screen.text(digitArray.join(''));
 })
+//Clear button reloads the page
+$clear.on('click', e => {
+    location.reload();
+})
+//Placeholder for future calculation, breaks the calculator! Hit clear if you push
+$rad.on('click', (e) =>{
+    $screen.text('Radical!');
+} )
+
 
 
 
